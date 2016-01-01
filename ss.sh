@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #add PORT NUMBER and PASSWORD of shadowsocks
+#author: mouyong mail: my24251325@gmail.com
 
 clear
 
