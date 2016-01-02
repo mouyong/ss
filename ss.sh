@@ -57,5 +57,14 @@ EOF
 		sudo iptables -A INPUT -p tcp --dport 8331:8400 -j ACCEPT
 		sudo iptables-save
 	fi
+	
+	if [ -n $(cat /etc/rc.local | grep ssserver) ];then
+cat >>/etc/rc.local<<EOF
+rm /var/log/shadowsocks.log -f
+#sslocal -c /etc/shadowsocks/zbb.json --pid-file /var/run/shadowsocks/zbb.pid --log-file /var/log/shadowsocks/zbb -d start
+ssserver -c /etc/shadowsocks/server.json -d start
+EOF
+	fi
+	
 clear
 fi
